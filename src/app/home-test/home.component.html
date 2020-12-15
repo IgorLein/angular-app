@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-card>
+    <p>
+      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo" />
+    </p>
+    <mat-card-content>
+      <mat-card-title translate>Hello world !</mat-card-title>
+      <mat-card-subtitle>
+        <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+        <q [hidden]="isLoading">{{ quote }}</q>
+      </mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+
+  <div>
+    {{testObj.counter1}}
+  </div>
+  <app-home-test id="HomeTest1" [list]="testObj.list"></app-home-test>
+  <div *ngFor="let obj of testObj.list">{{obj.value}}</div>
+  <button (click)="handleIncrementCounter1()">Increment Counter 1</button>
+  <button (click)="handleModifyList()">Modify List</button>
+  <p [appHighlightText]="highLightColor">Highlight Directive</p>
+  <div *appCustomFor="let n of numbers; index as i">
+    Number - {{n}}, Index - {{i}}
+  </div>
+
+  <ng-container #viewContainer></ng-container>
+  <ng-template #tmpl let-data="context">
+    Embedded View - {{data.index}}
+  </ng-template>
+
+  <div class="nested-list">
+    <node *ngFor="let item of nestedList" [data]="item"></node>
+  </div>
+  
+</div>

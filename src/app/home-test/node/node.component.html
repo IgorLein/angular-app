@@ -1,0 +1,9 @@
+<div>
+  <div class="file-name">
+    <img [src]="imagePath">
+    <p>{{data.name}}</p>
+  </div>
+  <div *ngIf="data.type === 'dir'" class="nested-content">
+      <node *ngFor="let item of data.contents" [data]="item"></node>
+  </div>
+</div>
